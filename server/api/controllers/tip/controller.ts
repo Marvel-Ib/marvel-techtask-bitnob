@@ -3,18 +3,23 @@ import { Request, Response } from 'express';
 import l from '../../../common/logger';
 import { Payload } from '../../../common/myInterface';
 
-const test_payload: Payload = {
-  customerEmail: 'testing@help.com',
-  satoshis: 300,
-  address: 'tb1q9h0yjdupyfpxfjg24rpx755xrplvzd9hz2nj7v',
-};
+// const payload: Payload = {
+//   customerEmail: 'backendlifetech@gmail.com',
+//   satoshis: 100,
+//   address: 'tb1q9h0yjdupyfpxfjg24rpx755xrplvzd9hz2nj7v',
+// };
 
 export class Controller {
   async sendOnchain(req: Request, res: Response): Promise<void> {
     try {
-      l.info(req.body, 'body dey send');
-      l.info(test_payload, 'payload i dey send');
-      const result = await OnchainService.sendBitcoin(test_payload);
+      const payload: Payload = {
+        customerEmail: req.body.customerEmail,
+        satoshis: req.body.satoshis,
+        address: req.body.address,
+      };
+      console.log(req.body);
+      l.info(payload, 'payload i dey send');
+      const result = await OnchainService.sendBitcoin(payload);
       res.json(result);
     } catch (e) {
       res.status(404).json({
@@ -35,6 +40,10 @@ export class Controller {
         message: e,
       });
     }
+  }
+  async receiveWebhook(req: Request, res: Response): Promise<void> {
+    l.info(req.body, 'payload i dey send');
+    res.status(200).json('received');
   }
 }
 export default new Controller();

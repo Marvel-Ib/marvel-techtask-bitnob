@@ -28,6 +28,10 @@ export class sendOnchain extends Base {
       return Promise.reject({ ee: error.message });
     }
   }
+
+  async receiveWebhook(data: any) {
+    console.log(data, 'event sent');
+  }
 }
 
 export default new sendOnchain();
