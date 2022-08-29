@@ -1,11 +1,6 @@
 import L from '../../common/logger';
 import { Base } from './base';
-
-interface Payload {
-  customerEmail: string;
-  satoshis: number;
-  address: string;
-}
+import { Payload } from '../../common/myInterface';
 
 export class sendOnchain extends Base {
   async sendBitcoin(data: Payload) {

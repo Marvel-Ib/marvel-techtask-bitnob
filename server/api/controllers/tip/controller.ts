@@ -1,12 +1,7 @@
 import OnchainService from '../../services/sendOnchain.services';
 import { Request, Response } from 'express';
 import l from '../../../common/logger';
-
-interface Payload {
-  customerEmail: string;
-  satoshis: number;
-  address: string;
-}
+import { Payload } from '../../../common/myInterface';
 
 const test_payload: Payload = {
   customerEmail: 'testing@help.com',
