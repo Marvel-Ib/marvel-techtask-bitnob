@@ -36,7 +36,8 @@ export default class ExpressServer {
     const welcome = (p: number) => (): void =>
       l.info(
         // eslint-disable-next-line prettier/prettier
-        `up and running in ${process.env.NODE_ENV || 'development'
+        `up and running in ${
+          process.env.NODE_ENV || 'development'
         } @: ${os.hostname()} on port: ${p}}`
       );
 
