@@ -22,5 +22,19 @@ export class Controller {
       });
     }
   }
+  async checkOnchainAddress(req: Request, res: Response): Promise<void> {
+    try {
+      console.log('ddd');
+      const bitcoinAddress = req.body.address;
+      l.info(bitcoinAddress, 'payload i dey send');
+      const result = await OnchainService.checkAddress(bitcoinAddress);
+      l.info('got here');
+      res.status(200).json(result);
+    } catch (e) {
+      res.status(404).json({
+        message: e,
+      });
+    }
+  }
 }
 export default new Controller();

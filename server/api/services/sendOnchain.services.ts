@@ -1,8 +1,21 @@
 import L from '../../common/logger';
 import { Base } from './base';
 import { Payload } from '../../common/myInterface';
+import { validate, getAddressInfo } from 'bitcoin-address-validation';
+
+enum Network {
+  mainnet = 'mainnet',
+  testnet = 'testnet',
+  regtest = 'regtest',
+}
 
 export class sendOnchain extends Base {
+  checkAddress(address: string): boolean {
+    const result = validate(address, Network.testnet);
+    L.info(getAddressInfo(address));
+    return result;
+  }
+
   async sendBitcoin(data: Payload) {
     L.info(data, 'sendam');
     const url = '/wallets/send_bitcoin';
