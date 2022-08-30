@@ -6,13 +6,11 @@ const requireParams =
       reqParamList.includes(param)
     );
     if (!hasAllRequiredParams)
-      return res
-        .status(400)
-        .send(
-          `The following parameters are all required for this route: ${params.join(
-            ', '
-          )}`
-        );
+      return res.status(400).json({
+        message: `The following parameters are all required for this route: ${params.join(
+          ', '
+        )}`,
+      });
 
     next();
     return;

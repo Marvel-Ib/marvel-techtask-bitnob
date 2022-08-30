@@ -34,9 +34,9 @@ export class Controller {
       l.info(bitcoinAddress, 'payload i dey send');
       const result = await OnchainService.checkAddress(bitcoinAddress);
       l.info('got here');
-      res.status(200).json(result);
+      res.status(200).json({ message: result });
     } catch (e) {
-      res.status(404).json({
+      res.status(400).json({
         message: e,
       });
     }

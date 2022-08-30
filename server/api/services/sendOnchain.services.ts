@@ -12,7 +12,7 @@ enum Network {
 export class sendOnchain extends Base {
   checkAddress(address: string): boolean {
     const result = validate(address, Network.testnet);
-    L.info(getAddressInfo(address));
+    // L.info(getAddressInfo(address));
     return result;
   }
 
