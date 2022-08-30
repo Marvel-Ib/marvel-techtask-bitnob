@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 const API_URL = 'https://tipp-bitnob.herokuapp.com/api/tip/';
 class TippService {
   checkOnchainAddress(address) {
@@ -32,7 +33,8 @@ class TippService {
   }
 
 
-  checkLnInvoice(data) {
+  checkLnInvoice(request) {
+    const data = { request }
     return axios
       .post(API_URL + "ln", data)
       .then(response => {
@@ -40,12 +42,16 @@ class TippService {
           console.log("success")
         }
         return response.data;
-      });
+      }).catch((err) => {
+        console.log(err, "abeg")
+        return err.message
+      })
 
   }
 
 
-  payLnInvoice(data) {
+  payLnInvoice(request, reference, customerEmail) {
+    const data = { request, reference, customerEmail }
     return axios
       .post(API_URL + "ln/pay", data)
       .then(response => {
@@ -53,8 +59,10 @@ class TippService {
           console.log("success")
         }
         return response.data;
-      });
-
+      }).catch((err) => {
+        console.log(err, "abeg")
+        return err.message
+      })
   }
 
 
