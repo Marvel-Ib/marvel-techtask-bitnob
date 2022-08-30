@@ -1,1 +1,1 @@
-web: npm run compile
+web: node dist/index.js
