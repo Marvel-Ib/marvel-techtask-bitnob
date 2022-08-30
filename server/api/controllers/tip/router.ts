@@ -14,4 +14,5 @@ export default express
     requiredBody(['customerEmail', 'satoshis', 'address']),
     controller.sendOnchain
   )
+  .post('/ln', requiredBody(['request']), controller.checkLnInvoice)
   .post('/webhook', webhookAuthentication(), controller.receiveWebhook);

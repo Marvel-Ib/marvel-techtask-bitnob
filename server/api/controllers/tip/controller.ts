@@ -1,4 +1,5 @@
 import OnchainService from '../../services/sendOnchain.services';
+import LightningService from '../../services/sendLightning.services';
 import { Request, Response } from 'express';
 import l from '../../../common/logger';
 import { Payload } from '../../../common/myInterface';
@@ -44,6 +45,21 @@ export class Controller {
   async receiveWebhook(req: Request, res: Response): Promise<void> {
     l.info(req.body, 'payload i dey send');
     res.status(200).json('received');
+  }
+
+  async checkLnInvoice(req: Request, res: Response): Promise<void> {
+    try {
+      console.log('ddd');
+      const lnInvoice = req.body.request;
+      l.info(lnInvoice, 'payload i dey send');
+      const result = await LightningService.check(lnInvoice);
+      l.info('got here');
+      res.status(200).json({ message: result });
+    } catch (e) {
+      res.status(400).json({
+        message: e,
+      });
+    }
   }
 }
 export default new Controller();
