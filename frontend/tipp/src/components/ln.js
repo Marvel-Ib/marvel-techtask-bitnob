@@ -80,7 +80,7 @@ export const Ln = () => {
         {unsureInvoice
           ? <Form onSubmit={checkValidInvoice}>
             <Form.Group controlId='formEmail'>
-              <Form.Label>paste the lightning invoice</Form.Label>
+              <Form.Label>paste the testnet lightning invoice</Form.Label>
               <Form.Control onChange={setInvoice} placeholder='tc' required />
               <Form.Text className='text-muted'>
                 may the sats be with you

@@ -1,56 +1,47 @@
 import React from 'react'
-import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form } from 'react-bootstrap';
+import { Carousel, Button, Alert, Breadcrumb, Card, Form } from 'react-bootstrap';
+import bitcoin from '../'
 export const Home = () => {
   return (
     <div>
       <header className="App-header">
-        <h1>this home resting</h1>
-        <Form>
-          <Row>
-            <Col md>
-              <Form.Group controlId='formEmail'>
-                <Form.Label>Email Address</Form.Label>
-                <Form.Control type="email" placeholder='la@gmail.com' />
-                <Form.Text className='text-muted'>
-                  never send sats ooooo
-                </Form.Text>
-              </Form.Group></Col>
-            <Col md>
-              <Form.Group controlId='formPassword'>
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder='Password' />
-                <Form.Text className='text-muted'>
-                  never send sats ooooo
-                </Form.Text>
-              </Form.Group>
-            </Col>
-          </Row>
+        <h1>Welcome to Tipp</h1>
+        <Carousel>
+          <Carousel.Item>
+            <img
+              src='https://picsum.photos/id/181/600/600'
+              alt="First slide"
+            />
+            <Carousel.Caption>
+              <h3 color='red'>overview of what we offer</h3>
+              <p>May the sats be with you</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              src='https://picsum.photos/id/1058/600/600'
+              alt="Second slide"
+            />
 
+            <Carousel.Caption>
+              <h3>send sats onchain to an address</h3>
+              <p>pay for that match ticket</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              src='https://picsum.photos/id/194/600/600'
+              alt="Third slide"
+            />
 
-          <Button variant='secondary'>select</Button>
-        </Form>
-
-        <Card className='mb-3' style={{ color: "#000" }}>
-          <Card.Img src='https://picsum.photos/200/100' />
-          <Card.Body>
-            <Card.Title>
-              card example
-            </Card.Title>
-            <Card.Text>
-              This is an example of react bootstrap cards
-            </Card.Text>
-            <Button variant='primary'>Read more</Button>
-
-          </Card.Body>
-        </Card>
-
-        <Breadcrumb>
-          <Breadcrumb.Item>wow</Breadcrumb.Item>
-          <Breadcrumb.Item>wow1</Breadcrumb.Item>
-          <Breadcrumb.Item>ok</Breadcrumb.Item>
-        </Breadcrumb>
-        <Alert variant='primary'>ok test </Alert>
-        <Button>Bootstrap button</Button>
+            <Carousel.Caption>
+              <h3>send sats via lightning</h3>
+              <p>
+                Pay for your everyday needs
+              </p>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
       </header>
     </div>
   )
