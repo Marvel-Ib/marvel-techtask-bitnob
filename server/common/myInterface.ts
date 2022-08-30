@@ -4,4 +4,10 @@ interface Payload {
   address: string;
 }
 
-export { Payload };
+interface invoicePayload {
+  request: string;
+  reference: string;
+  customerEmail: string;
+}
+
+export { Payload, invoicePayload };

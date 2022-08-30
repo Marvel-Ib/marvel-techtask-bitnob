@@ -15,4 +15,9 @@ export default express
     controller.sendOnchain
   )
   .post('/ln', requiredBody(['request']), controller.checkLnInvoice)
+  .post(
+    '/ln/pay',
+    requiredBody(['request', 'reference', 'customerEmail']),
+    controller.payLnInvoice
+  )
   .post('/webhook', webhookAuthentication(), controller.receiveWebhook);

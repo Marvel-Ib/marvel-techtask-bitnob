@@ -2,7 +2,7 @@ import OnchainService from '../../services/sendOnchain.services';
 import LightningService from '../../services/sendLightning.services';
 import { Request, Response } from 'express';
 import l from '../../../common/logger';
-import { Payload } from '../../../common/myInterface';
+import { Payload, invoicePayload } from '../../../common/myInterface';
 
 // const payload: Payload = {
 //   customerEmail: 'backendlifetech@gmail.com',
@@ -53,6 +53,24 @@ export class Controller {
       const lnInvoice = req.body.request;
       l.info(lnInvoice, 'payload i dey send');
       const result = await LightningService.check(lnInvoice);
+      l.info('got here');
+      res.status(200).json({ message: result });
+    } catch (e) {
+      res.status(400).json({
+        message: e,
+      });
+    }
+  }
+
+  async payLnInvoice(req: Request, res: Response): Promise<void> {
+    try {
+      const payload: invoicePayload = {
+        customerEmail: req.body.customerEmail,
+        request: req.body.request,
+        reference: req.body.reference,
+      };
+      l.info(payload, 'payload i dey send');
+      const result = await LightningService.payInvoice(payload);
       l.info('got here');
       res.status(200).json({ message: result });
     } catch (e) {
