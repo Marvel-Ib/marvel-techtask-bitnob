@@ -1,5 +1,4 @@
 import axios from 'axios';
-import L from '../../common/logger';
 import nodemailer from 'nodemailer';
 
 class Base {
@@ -59,7 +58,7 @@ class Base {
         subject: 'You just received satoshis ',
         html: `<h1>You have received ${amount} sats via ${channel} enjoy your tip</h1>`,
       };
-      const re = await transporter.sendMail(email);
+      await transporter.sendMail(email);
       return Promise.resolve({ message: 'sent' });
     } catch (error) {
       return Promise.reject({ ee: error.message });
