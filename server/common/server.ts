@@ -16,7 +16,10 @@ export default class ExpressServer {
   constructor() {
     const root = path.normalize(__dirname + '/../..');
     const corsOption = {
-      origin: ['http://localhost:3000'],
+      origin: [
+        'http://localhost:3000',
+        'https://chipper-begonia-a021a3.netlify.app',
+      ],
     };
     app.use(bodyParser.json({ limit: process.env.REQUEST_LIMIT || '100kb' }));
     app.use(
