@@ -8,7 +8,7 @@ export const Home = () => {
         <Carousel>
           <Carousel.Item>
             <img
-              src='https://picsum.photos/id/181/600/600'
+              src='https://picsum.photos/id/181/400/400'
               alt="First slide"
             />
             <Carousel.Caption>
@@ -18,7 +18,7 @@ export const Home = () => {
           </Carousel.Item>
           <Carousel.Item>
             <img
-              src='https://picsum.photos/id/1058/600/600'
+              src='https://picsum.photos/id/1058/400/400'
               alt="Second slide"
             />
 
@@ -29,7 +29,7 @@ export const Home = () => {
           </Carousel.Item>
           <Carousel.Item>
             <img
-              src='https://picsum.photos/id/194/600/600'
+              src='https://picsum.photos/id/194/400/400'
               alt="Third slide"
             />
 
