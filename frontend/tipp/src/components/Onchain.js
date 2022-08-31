@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form } from 'react-bootstrap';
+import { Button, Alert, Form } from 'react-bootstrap';
 import TippService from '../services/tipp'
 
 

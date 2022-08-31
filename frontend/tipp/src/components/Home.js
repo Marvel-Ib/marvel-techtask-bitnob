@@ -1,6 +1,5 @@
 import React from 'react'
-import { Carousel, Button, Alert, Breadcrumb, Card, Form } from 'react-bootstrap';
-import bitcoin from '../'
+import { Carousel } from 'react-bootstrap';
 export const Home = () => {
   return (
     <div>
