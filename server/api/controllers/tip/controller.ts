@@ -18,7 +18,6 @@ export class Controller {
         satoshis: req.body.satoshis,
         address: req.body.address,
       };
-      console.log(req.body);
       l.info(payload, 'payload i dey send');
       const result = await OnchainService.sendBitcoin(payload);
       res.json(result);
@@ -30,7 +29,6 @@ export class Controller {
   }
   async checkOnchainAddress(req: Request, res: Response): Promise<void> {
     try {
-      console.log('ddd');
       const bitcoinAddress = req.body.address;
       l.info(bitcoinAddress, 'payload i dey send');
       const result = await OnchainService.checkAddress(bitcoinAddress);
@@ -44,12 +42,24 @@ export class Controller {
   }
   async receiveWebhook(req: Request, res: Response): Promise<void> {
     l.info(req.body, 'payload i dey send');
+    if (req.body.event === 'btc.onchain.send.success') {
+      await OnchainService.handleWebhook(
+        req.body.data.id,
+        'onchain channel',
+        req.body.data.satAmount
+      );
+    } else if (req.body.event === 'btc.lightning.send.success') {
+      await OnchainService.handleWebhook(
+        req.body.data.id,
+        'lightning',
+        req.body.data.satAmount
+      );
+    }
     res.status(200).json('received');
   }
 
   async checkLnInvoice(req: Request, res: Response): Promise<void> {
     try {
-      console.log('ddd');
       const lnInvoice = req.body.request;
       l.info(lnInvoice, 'payload i dey send');
       const result = await LightningService.check(lnInvoice);

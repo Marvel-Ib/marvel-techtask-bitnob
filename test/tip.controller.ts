@@ -164,7 +164,6 @@ describe('pay ln invoice ', () => {
           'lntb1500n1p3sma3jpp50zk3822q5xpeluyp4jlwa6ua2y2egl6t6qrw63ptm98yqes2futsdp42fjkzep6ypp9gseqvejk2ernyp6x2mr9vaexzmfqvd5xzmnwv4kq6cqzpgxqr23ssp58ecprkj0nlvdt36wmvngzmrf4kx74kx6yajfnl3e80hn3rwk3mns9qyyssq4g456cttt7l79hw5hewz8fqz8wfcg2kldu6jf8gguh78c4ssq3dhqfnzcp9fl39e0hytxcfcmr8ca90rzxmtx6zhkzfxdrp3zmmqkpqqhntnga',
       })
       .expect(200);
-    console.log(res.body.message);
     expect(res.body.message.message).to.eql('Transaction summary');
     expect(res.body.message.status).to.be.true;
   });

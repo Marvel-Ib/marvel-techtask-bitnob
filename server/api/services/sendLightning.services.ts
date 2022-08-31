@@ -2,7 +2,7 @@ import L from '../../common/logger';
 import { Base } from './base';
 import { invoicePayload } from '../../common/myInterface';
 
-export class LightningService extends Base {
+class LightningService extends Base {
   async check(invoice: string) {
     L.info(invoice, 'invoice sent');
     const url = '/wallets/ln/initiatepayment';

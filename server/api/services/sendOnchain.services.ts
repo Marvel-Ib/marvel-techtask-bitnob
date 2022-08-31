@@ -1,7 +1,7 @@
 import L from '../../common/logger';
 import { Base } from './base';
 import { Payload } from '../../common/myInterface';
-import { validate, getAddressInfo } from 'bitcoin-address-validation';
+import { validate } from 'bitcoin-address-validation';
 
 enum Network {
   mainnet = 'mainnet',
@@ -9,7 +9,7 @@ enum Network {
   regtest = 'regtest',
 }
 
-export class sendOnchain extends Base {
+class sendOnchain extends Base {
   checkAddress(address: string): boolean {
     const result = validate(address, Network.testnet);
     // L.info(getAddressInfo(address));
@@ -27,10 +27,6 @@ export class sendOnchain extends Base {
     } catch (error) {
       return Promise.reject({ ee: error.message });
     }
-  }
-
-  async receiveWebhook(data: any) {
-    console.log(data, 'event sent');
   }
 }
 
