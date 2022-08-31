@@ -81,7 +81,7 @@ export const Ln = () => {
           ? <Form onSubmit={checkValidInvoice}>
             <Form.Group controlId='formEmail'>
               <Form.Label>paste the testnet lightning invoice</Form.Label>
-              <Form.Control onChange={setInvoice} placeholder='tc' required />
+              <Form.Control onChange={setInvoice} placeholder='lntb10u1pssyl2lpp5ff82hm7d84eq2peuxgu7' required />
               <Form.Text className='text-muted'>
                 may the sats be with you
               </Form.Text>

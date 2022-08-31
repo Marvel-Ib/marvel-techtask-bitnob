@@ -75,7 +75,7 @@ export const Onchain = () => {
           ? <Form onSubmit={checkValidAddress}>
             <Form.Group controlId='formEmail'>
               <Form.Label>paste the signet/testnet address</Form.Label>
-              <Form.Control onChange={addressChange} placeholder='tc' required />
+              <Form.Control onChange={addressChange} placeholder='tb1q9h0yjdupyfpxfjg24rpx755xrpl' required />
               <Form.Text className='text-muted'>
                 may the sats be with you
               </Form.Text>
