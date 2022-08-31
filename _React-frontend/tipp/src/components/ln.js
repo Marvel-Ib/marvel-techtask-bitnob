@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Alert, Form } from 'react-bootstrap';
-import cryptoRandomString from 'crypto-random-string';
+
+//import cryptoRandomString from 'crypto-random-string';
 import TippService from '../services/tipp'
 
 
@@ -56,7 +57,8 @@ export const Ln = () => {
 
   async function sendSat(e) {
     e.preventDefault();
-    const reference = cryptoRandomString({ length: 10 })
+    // const reference = cryptoRandomString({ length: 10 })
+    const reference = "qwertyuipopl"
     console.log(reference, request, customerEmail, "check")
     const result = await TippService.payLnInvoice(request, reference, customerEmail)
     if (result === "Request failed with status code 400") {
